@@ -1,4 +1,4 @@
-# C Bindings to Android log Library
+# Bindings to Android log Library
 
 ## License
 
