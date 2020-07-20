@@ -30,6 +30,36 @@ pub enum LogPriority {
     SILENT = 8,
 }
 
+#[allow(non_camel_case_types)]
+#[derive(Clone, Copy)]
+#[non_exhaustive]
+#[repr(i32)]
+pub enum log_id_t {
+    MAIN = 0,
+    RADIO = 1,
+    EVENTS = 2,
+    SYSTEM = 3,
+    CRASH = 4,
+    STATS = 5,
+    SECURITY = 6,
+    KERNEL = 7,
+    MAX = 8,
+    DEFAULT = 0x7FFFFFFF,
+}
+
+#[allow(non_camel_case_types)]
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct __android_log_message {
+    pub struct_size: usize,
+    pub buffer_id: i32,
+    pub priority: i32,
+    pub tag: *const c_char,
+    pub file: *const c_char,
+    pub line: u32,
+    pub message: *const c_char,
+}
+
 #[link(name = "log")]
 extern "C" {
     pub fn __android_log_write(prio: c_int,
@@ -50,4 +80,9 @@ extern "C" {
                                 tag: *const c_char,
                                 fmt: *const c_char,
                                 ...);
+    pub fn __android_log_is_loggable(prio: c_int,
+                                     tag: *const c_char,
+                                     default_prio: c_int)
+                                     -> c_int;
+    pub fn __android_log_write_log_message(log_message: *mut __android_log_message);
 }
