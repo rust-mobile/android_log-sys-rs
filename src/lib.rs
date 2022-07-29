@@ -66,6 +66,11 @@ extern "C" {
                                tag: *const c_char,
                                text: *const c_char)
                                -> c_int;
+    pub fn __android_log_buf_write(bufID: c_int,
+                                   prio: c_int,
+                                   tag: *const c_char,
+                                   text: *const c_char)
+                                   -> c_int;
     pub fn __android_log_print(prio: c_int,
                                tag: *const c_char,
                                fmt: *const c_char,
