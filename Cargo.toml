@@ -2,11 +2,11 @@
 name = "android_log-sys"
 version = "0.3.0"
 authors = [
-    "Nerijus Arlauskas <nercury@gmail.com>",
+    "The android_log_sys Developers",
 ]
 license = "MIT OR Apache-2.0"
 readme = "README.md"
-repository = "https://github.com/nercury/android_log-sys-rs"
+repository = "https://github.com/rust-mobile/android_log-sys-rs"
 description = """
 FFI bindings to Android log Library.
 """
