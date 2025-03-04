@@ -13,6 +13,10 @@ FFI bindings to Android log Library.
 documentation = "https://docs.rs/android_log-sys"
 keywords = ["ffi", "android", "log"]
 categories = ["external-ffi-bindings"]
+rust-version = "1.60"
 
 [lib]
 name = "android_log_sys"
+
+[workspace]
+members = ["api_gen/"]
